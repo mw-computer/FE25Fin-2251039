@@ -1,90 +1,45 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>웹화면구현:김똘똘-ㅇㅇㅇ클로닝
-		//TODO: 타이틀에 본인 이름 넣기
-	</title>
-	<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>웹개발구현:홍태원-프로그래머스 클로</title>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
-
 <body>
-	<nav>
-		<div class="container">
-			//TODO: 메뉴 완성하기 (상단메뉴바 또는 사이드메뉴바) + 화면 사이즈에 따라 반응형으로 변경되도록 구현하기
-			<ul>
-				<li>
-					<a herf="#"> 메뉴 1</a>
-					<li><a href="#"> 서브 메뉴 1</a></li>
-					<li><a href="#"> 서브 메뉴 1</a></li>
-					<li><a href="#"> 서브 메뉴 1</a></li>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a herf="#"> 메뉴 2</a>
-					<li><a href="#"> 서브 메뉴 2</a></li>
-					<li><a href="#"> 서브 메뉴 2</a></li>
-					<li><a href="#"> 서브 메뉴 2</a></li>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a herf="#"> 메뉴 3</a>
-					<li><a href="#"> 서브 메뉴 3</a></li>
-					<li><a href="#"> 서브 메뉴 3</a></li>
-					<li><a href="#"> 서브 메뉴 3</a></li>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a herf="#"> 메뉴 4</a>
-					<li><a href="#"> 서브 메뉴 4</a></li>
-					<li><a href="#"> 서브 메뉴 4</a></li>
-					<li><a href="#"> 서브 메뉴 4</a></li>
-				</li>
-			</ul>
-
-	</nav>
-	<main>
-		<div class="container">
-			<h1>웹화면 구현</h1>
-			//TODO: 여기에 본인이 구현하고자 하는 내용을 작성하세요.
-		</div>
-	</main>
-	<section>
-		<div class="container">
-			<h2>섹션1</h2>
-			//TODO: 여기에 본인이 구현하고자 하는 내용을 작성하세요.
-		</div>
-	</section>
-		<section>
-		<div class="container">
-			<h2>섹션2</h2>
-			//TODO: 여기에 본인이 구현하고자 하는 내용을 작성하세요.
-		</div>
-	</section>
-	<section>
-		<div class="container">
-			<h2>섹션3</h2>
-			//TODO: 여기에 본인이 구현하고자 하는 내용을 작성하세요.
-		</div>
-	</section>
-	<section>
-		<div class="container">
-			<h2>섹션4</h2>
-			//TODO: 여기에 본인이 구현하고자 하는 내용을 작성하세요.
-		</div>
-	</section>
-	<footer>
-		<div class="container">
-			<p>© 2023 김똘똘. All rights reserved.</p>
-			//TODO: 본인의 닉네임, 이메일 주소, 저작권 표시 등을 작성하세요.
-			//FIXME: 특히, 가져온 그림에 대한 저작권 표시를 반드시 작성하세요.
-		</div>
-	</footer>
+  <header>
+    <div class="container">
+      <h1 class="logo">Programmers</h1>
+      <nav>
+        <ul>
+          <li><a href="#">코딩테스트 연습</a></li>
+          <li><a href="#">채용</a></li>
+          <li><a href="#">강의</a></li>
+        </ul>
+      </nav>
+      <div class="auth">
+        <button id="loginBtn">로그인</button>
+        <button id="signupBtn">회원가입</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="banner">
+      <h2>개발자를 위한 코딩 연습, 채용, 강의</h2>
+      <p>프로그래머스에서 실력을 키우고, 기회를 잡으세요.</p>
+    </section>
+    <section class="problems">
+      <h3>코딩테스트 연습 문제</h3>
+      <ul id="problemList">
+        <!-- JS로 문제 목록이 채워집니다 -->
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Programmers Clone. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
 </body>
-
 </html>
