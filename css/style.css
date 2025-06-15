@@ -1,125 +1,255 @@
-body {
-  margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
-  background: #f8f9fa;
-  color: #222;
-}
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+/* ...existing code... */
+
+/* 네비게이션 메뉴 스타일 개선 */
 header {
   background: #fff;
   border-bottom: 1px solid #e5e5e5;
-  padding: 0.5rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
 }
-.logo {
-  font-size: 1.8rem;
-  color: #3c4858;
-  font-weight: bold;
-  margin: 0;
-}
-nav ul {
-  list-style: none;
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
 }
-nav a {
-  text-decoration: none;
-  color: #3c4858;
-  font-weight: 500;
+.logo img { height: 32px; }
+nav { flex: 1; }
+.main-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.menu-item {
+  position: relative;
+  cursor: pointer;
+  padding: 0.5rem 0;
   transition: color 0.2s;
+  outline: none;
 }
-nav a:hover {
+.menu-item:focus,
+.menu-item:hover {
   color: #0078ff;
 }
-.auth button {
-  margin-left: 0.5rem;
-  padding: 0.4rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background: #0078ff;
-  color: #fff;
+.menu-item.active {
+  color: #0078ff;
+}
+.menu-item:active {
+  color: #005fcc;
+}
+.menu-item .blue { color: #0078ff; }
+.nav-right { margin-left: 1.5rem; }
+.login-btn {
+  border: 1px solid #0078ff;
+  background: #fff;
+  color: #0078ff;
+  border-radius: 6px;
+  padding: 0.4rem 1.1rem;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s;
 }
-.auth button#signupBtn {
+.login-btn:hover { background: #0078ff; color: #fff; }
+
+/* 드롭다운 메뉴 */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  transform: translateX(-50%);
   background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  border-radius: 12px;
+  padding: 2rem 2.5rem 2rem 2rem;
+  min-width: 700px;
+  max-width: 1100px;
+  display: flex;
+  gap: 3rem;
+  z-index: 100;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s;
+  animation: fadeIn 0.2s;
+}
+.dropdown-menu.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.dropdown-menu strong { font-size: 1.08rem; }
+.dropdown-menu .dropdown-title { color: #0078ff; }
+.dropdown-menu ul { margin-top: 0.5rem; }
+.dropdown-menu ul li {
+  margin-bottom: 0.4rem;
+  color: #444;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+.dropdown-menu ul li:hover {
+  background: #f0f6ff;
   color: #0078ff;
-  border: 1px solid #0078ff;
 }
-.auth button:hover {
-  background: #005fcc;
+.dropdown-menu a { color: #0078ff; font-size: 0.95rem; }
+@media (max-width: 1024px) {
+  .dropdown-menu { min-width: 90vw; max-width: 98vw; padding: 1.2rem 0.5rem; gap: 1.2rem; }
+}
+@media (max-width: 768px) {
+  .dropdown-menu { flex-direction: column; gap: 0.7rem; left: 0; transform: none; min-width: 100vw; }
+}
+
+/* 메인 슬라이드 배너 개선 */
+.main-banner {
+  background: #111;
   color: #fff;
+  width: 100%;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.banner {
-  background: linear-gradient(90deg, #0078ff 0%, #00c6ff 100%);
+.slide {
+  display: none;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 340px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 1rem;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.5s;
+}
+.slide.active { display: flex; position: relative; opacity: 1; }
+.slide-content { flex: 1; }
+.slide-content h4 { margin: 0 0 0.7rem 0; font-size: 1.1rem; color: #aaa; }
+.slide-content h2 { margin: 0 0 1rem 0; font-size: 2.1rem; font-weight: 700; }
+.slide-content p { margin: 0 0 1.5rem 0; font-size: 1.1rem; color: #ccc; }
+.slide-img { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
+.slide-img img {
+  width: 100%;
+  max-width: 350px;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  background: #222;
+}
+.slide-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.slide-nav button {
+  background: #222;
   color: #fff;
-  padding: 3rem 0 2rem 0;
-  text-align: center;
+  border: none;
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
 }
-.banner h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-.banner p {
-  font-size: 1.1rem;
-}
-.problems {
+.slide-nav button:hover { background: #0078ff; }
+#slide-index { font-size: 1rem; }
+
+/* 주요 서비스 아이콘 (구글 머티리얼 아이콘) */
+.main-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 2.5rem 0 1.5rem 0;
   background: #fff;
-  margin: 2rem auto;
-  max-width: 900px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 2rem;
+  flex-wrap: wrap;
 }
-.problems h3 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
-  color: #0078ff;
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.05rem;
+  color: #333;
+  min-width: 90px;
 }
-#problemList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.material-icons.md-48 { font-size: 48px; color: #0078ff; margin-bottom: 0.5rem; }
+
+/* 카드 섹션 크기/여백 개선 */
+.card-section {
+  max-width: 1200px;
+  margin: 2.5rem auto 0 auto;
+  padding: 0 1rem;
 }
-#problemList li {
-  padding: 1rem;
-  border-bottom: 1px solid #f0f0f0;
+.section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.2rem;
 }
-#problemList li:last-child {
-  border-bottom: none;
+.card-list {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
-.problem-title {
-  font-weight: 500;
-  color: #222;
-}
-.problem-level {
-  background: #e5f2ff;
-  color: #0078ff;
+.card-list.grid-2row { flex-wrap: wrap; }
+.card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
   border-radius: 12px;
-  padding: 0.2rem 0.8rem;
-  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  width: 320px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
 }
-footer {
-  background: #222;
-  color: #fff;
-  text-align: center;
-  padding: 1.2rem 0;
-  margin-top: 2rem;
-  font-size: 0.95rem;
+.card:hover { box-shadow: 0 8px 24px rgba(0,120,255,0.08);}
+.card img { width: 100%; height: 140px; object-fit: cover; }
+.card-title { font-weight: 600; font-size: 1.05rem; margin: 1rem 1rem 0.5rem 1rem; }
+.card-desc { font-size: 0.95rem; color: #666; margin: 0 1rem 1rem 1rem; }
+.card-footer { margin: 0.5rem 1rem 1rem 1rem; color: #0078ff; font-weight: 500; }
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  .nav-container, .footer-banner, .footer-bottom, .card-section { max-width: 98vw; }
+  .main-banner, .slide { min-height: 260px; }
+  .slide-img img { max-width: 220px; }
+  .card { width: 45vw; min-width: 180px; }
+  .card-list { gap: 1rem; }
+  .dropdown-menu { min-width: 90vw; }
+}
+@media (max-width: 900px) {
+  .card { width: 95vw; min-width: 120px; }
+  .dropdown-menu { min-width: 98vw; }
+}
+@media (max-width: 768px) {
+  .nav-container { flex-direction: column; align-items: flex-start; }
+  .main-menu { gap: 1rem; font-size: 0.98rem; }
+  .main-banner, .slide { min-height: 180px; }
+  .slide-content h2 { font-size: 1.2rem; }
+  .slide-img img { max-width: 120px; }
+  .main-icons { gap: 1rem; }
+  .card-section { padding: 0 0.5rem; }
+  .footer-banner { flex-direction: column; gap: 1rem; }
+  .footer-cols { flex-direction: column; gap: 1rem; }
+}
+@media (max-width: 480px) {
+  .main-menu { flex-direction: column; gap: 0.5rem; }
+  .slide-content h2 { font-size: 1rem; }
+  .slide-img img { max-width: 80px; }
+  .card { width: 98vw; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

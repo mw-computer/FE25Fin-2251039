@@ -1,43 +1,368 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>웹개발구현:홍태원-프로그래머스 클로</title>
-  <link rel="stylesheet" href="css/style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 클로</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- 네비게이션 -->
   <header>
-    <div class="container">
-      <h1 class="logo">Programmers</h1>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="logo.png" alt="programmers 로고" height="32">
+      </div>
       <nav>
-        <ul>
-          <li><a href="#">코딩테스트 연습</a></li>
-          <li><a href="#">채용</a></li>
-          <li><a href="#">강의</a></li>
+        <ul class="main-menu">
+          <li class="menu-item" data-menu="edu">교육
+            <div class="dropdown" id="dropdown-edu">
+              <div>
+                <strong>교육 홈</strong>
+              </div>
+              <div>
+                <strong>강의</strong>
+                <ul>
+                  <li>전체</li>
+                  <li>데브코스</li>
+                  <li>영상/실습 강의</li>
+                  <li>PCCP.E 자격증</li>
+                </ul>
+              </div>
+              <div>
+                <strong>MY 스쿨</strong>
+                <ul>
+                  <li>수강 중인 코스</li>
+                  <li>관리 중인 코스</li>
+                </ul>
+              </div>
+              <div>
+                <strong>강사 신청</strong>
+                <ul>
+                  <li>강사/멘토풀 등록</li>
+                </ul>
+                <a href="#">캠퍼스 <span>↗</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="menu-item" data-menu="dev">데브코스 <span class="blue">부트캠프</span>
+            <div class="dropdown" id="dropdown-dev">
+              <div>
+                <strong>데브코스 홈</strong>
+              </div>
+              <div>
+                <strong>웹 데브코스</strong>
+                <ul>
+                  <li>프론트엔드 과정</li>
+                  <li>백엔드 과정</li>
+                  <li>백엔드(with.ChatGPT) 과정</li>
+                  <li>풀스택 과정</li>
+                </ul>
+              </div>
+              <div>
+                <strong>데이터 데브코스</strong>
+                <ul>
+                  <li>데이터 분석 과정</li>
+                  <li>데이터 엔지니어링 과정</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="menu-item" data-menu="coding">코딩테스트
+            <div class="dropdown" id="dropdown-coding">
+              <div>
+                <strong>코딩테스트 문제</strong>
+                <ul>
+                  <li>모든 문제</li>
+                  <li>기초 문제</li>
+                  <li>입문 문제</li>
+                  <li>알고리즘 고득점 Kit</li>
+                  <li>SQL 고득점 Kit</li>
+                  <li>과제테스트</li>
+                  <li>Q&A</li>
+                </ul>
+              </div>
+              <div>
+                <strong>스킬체크</strong>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">인증시험 <span>↗</span></a></li>
+          <li><a href="#">블로그</a></li>
+          <li><a href="#">기업서비스</a></li>
         </ul>
       </nav>
-      <div class="auth">
-        <button id="loginBtn">로그인</button>
-        <button id="signupBtn">회원가입</button>
+      <div class="nav-right">
+        <button class="login-btn">로그인</button>
       </div>
     </div>
   </header>
-  <main>
-    <section class="banner">
-      <h2>개발자를 위한 코딩 연습, 채용, 강의</h2>
-      <p>프로그래머스에서 실력을 키우고, 기회를 잡으세요.</p>
-    </section>
-    <section class="problems">
-      <h3>코딩테스트 연습 문제</h3>
-      <ul id="problemList">
-        <!-- JS로 문제 목록이 채워집니다 -->
-      </ul>
-    </section>
-  </main>
+
+  <!-- 메인 슬라이드 배너 -->
+  <section class="main-banner">
+    <div class="slide" id="slide-0">
+      <div class="slide-content">
+        <h4>데브코스</h4>
+        <h2>대기업 채용 데이터 집중 분석<br>취업은 백엔드 데브코스에서!</h2>
+        <p>실무에 최적화 된 커리큘럼으로<br>현업에서 바로쓰는 백엔드 과정</p>
+        <div class="slide-nav">
+          <button id="prev-slide">&lt;</button>
+          <span id="slide-index">1 / 6</span>
+          <button id="next-slide">&gt;</button>
+        </div>
+      </div>
+      <div class="slide-img">
+        <img src="images/A1.png" alt="슬라이드1 이미지">
+      </div>
+    </div>
+    <div class="slide" id="slide-1">
+      <div class="slide-content">
+        <h4>데브코스</h4>
+        <h2>프론트엔드 집중 부트캠프<br>실무 프로젝트로 성장!</h2>
+        <p>최신 기술 스택과 실전 프로젝트 경험 제공</p>
+        <div class="slide-nav">
+          <button id="prev-slide">&lt;</button>
+          <span id="slide-index">2 / 6</span>
+          <button id="next-slide">&gt;</button>
+        </div>
+      </div>
+      <div class="slide-img">
+        <img src="images/A2.png" alt="슬라이드2 이미지">
+      </div>
+    </div>
+    <div class="slide" id="slide-2">
+      <div class="slide-content">
+        <h4>데브코스</h4>
+        <h2>AI 백엔드 과정<br>생성형 AI 활용 개발자 되기</h2>
+        <p>AI와 백엔드의 융합, 실무 중심 교육</p>
+        <div class="slide-nav">
+          <button id="prev-slide">&lt;</button>
+          <span id="slide-index">3 / 6</span>
+          <button id="next-slide">&gt;</button>
+        </div>
+      </div>
+      <div class="slide-img">
+        <img src="images/A3.png" alt="슬라이드3 이미지">
+      </div>
+    </div>
+    <div class="slide" id="slide-3">
+      <div class="slide-content">
+        <h4>데브코스</h4>
+        <h2>데이터 엔지니어링<br>데이터 전문가로 성장!</h2>
+        <p>데이터 파이프라인, 빅데이터 실무 경험</p>
+        <div class="slide-nav">
+          <button id="prev-slide">&lt;</button>
+          <span id="slide-index">4 / 6</span>
+          <button id="next-slide">&gt;</button>
+        </div>
+      </div>
+      <div class="slide-img">
+        <img src="images/A4.png" alt="슬라이드4 이미지">
+      </div>
+    </div>
+    <div class="slide" id="slide-4">
+      <div class="slide-content">
+        <h4>데브코스</h4>
+        <h2>데이터 분석<br>실무 데이터 분석가 양성</h2>
+        <p>실제 데이터로 배우는 분석 실습</p>
+        <div class="slide-nav">
+          <button id="prev-slide">&lt;</button>
+          <span id="slide-index">5 / 6</span>
+          <button id="next-slide">&gt;</button>
+        </div>
+      </div>
+      <div class="slide-img">
+        <img src="images/A5.png" alt="슬라이드5 이미지">
+      </div>
+    </div>
+    <div class="slide" id="slide-5">
+      <div class="slide-content">
+        <h4>데브코스</h4>
+        <h2>웹 풀스택 과정<br>React, Node.js로 완성!</h2>
+        <p>프론트부터 백엔드까지 한 번에</p>
+        <div class="slide-nav">
+          <button id="prev-slide">&lt;</button>
+          <span id="slide-index">6 / 6</span>
+          <button id="next-slide">&gt;</button>
+        </div>
+      </div>
+      <div class="slide-img">
+        <img src="images/A6.png" alt="슬라이드6 이미지">
+      </div>
+    </div>
+  </section>
+
+  <!-- 주요 서비스 아이콘 -->
+  <section class="main-icons">
+    <div class="icon-item">
+      <img src="" alt="무료 국비 강의">
+      <span>무료 국비 강의</span>
+    </div>
+    <div class="icon-item">
+      <img src="icon2.png" alt="코딩테스트 문제">
+      <span>코딩테스트 문제</span>
+    </div>
+    <div class="icon-item">
+      <img src="icon3.png" alt="수강 중인 강의">
+      <span>수강 중인 강의</span>
+    </div>
+    <div class="icon-item">
+      <img src="icon4.png" alt="블로그">
+      <span>블로그</span>
+    </div>
+    <div class="icon-item">
+      <img src="icon5.png" alt="스킬체크">
+      <span>스킬체크</span>
+    </div>
+    <div class="icon-item">
+      <img src="icon6.png" alt="코딩역량인증시험">
+      <span>코딩역량인증시험</span>
+    </div>
+  </section>
+
+  <!-- 추천 강의 -->
+  <section class="card-section">
+    <div class="section-header">
+      <h3>추천 강의</h3>
+      <a href="#">더보기 &gt;</a>
+    </div>
+    <div class="card-list">
+      <div class="card">
+        <img src="images/backend.jpg" alt="추천강의1">
+        <div class="card-title">코딩테스트 연습 힌트 모음집</div>
+        <div class="card-footer">무료</div>
+      </div>
+      <div class="card">
+        <img src="lecture2.jpg" alt="추천강의2">
+        <div class="card-title">[7기] K-Digital Training: 클라우드 기반 백엔드 엔지니어링</div>
+        <div class="card-footer">무료</div>
+      </div>
+      <div class="card">
+        <img src="lecture3.jpg" alt="추천강의3">
+        <div class="card-title">[도서실습] 내일은 코딩테스트 with 파이썬</div>
+        <div class="card-footer">무료</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 블로그 -->
+  <section class="card-section">
+    <div class="section-header">
+      <h3>프로그래머스 블로그</h3>
+      <a href="#">더보기 &gt;</a>
+    </div>
+    <div class="card-list">
+      <div class="card">
+        <img src="blog1.jpg" alt="블로그1">
+        <div class="card-title">곰돌이 젤리로 알아보는 인공지능 수학 KL Divergence</div>
+        <div class="card-desc">KL Divergence는 인공지능이 예측한 실제 데이터 간의 차이를 학습하는 데 사용하는 수학 수식입니다.</div>
+      </div>
+      <div class="card">
+        <img src="blog2.jpg" alt="블로그2">
+        <div class="card-title">제5회 디버그스 커리어 TALK &lt;취업을 앞당기는 개발자 전략&gt;</div>
+        <div class="card-desc">다양한 경력의 멘토들이 말하는 취업 전략!</div>
+      </div>
+      <div class="card">
+        <img src="blog3.jpg" alt="블로그3">
+        <div class="card-title">머쓱이 6월 캘린더 &amp; 줌 배경화면 무료 배포</div>
+        <div class="card-desc">머쓱이 6월 캘린더와 줌 배경화면을 무료로 배포합니다.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 국비지원 강의 -->
+  <section class="card-section">
+    <div class="section-header">
+      <h3>국비지원으로 개발자 커리어 시작!</h3>
+      <a href="#">더보기 &gt;</a>
+    </div>
+    <div class="card-list grid-2row">
+      <div class="card">
+        <img src="gov1.jpg" alt="국비강의1">
+        <div class="card-title">[7기] K-Digital Training: 클라우드 기반 백엔드 엔지니어링</div>
+        <div class="card-footer">무료</div>
+      </div>
+      <div class="card">
+        <img src="gov2.jpg" alt="국비강의2">
+        <div class="card-title">[6기] K-Digital Training: 클라우드 기반 프론트엔드 엔지니어링</div>
+        <div class="card-footer">무료</div>
+      </div>
+      <div class="card">
+        <img src="gov3.jpg" alt="국비강의3">
+        <div class="card-title">[3기] K-Digital Training: 생성형 AI 활용 백엔드 개발</div>
+        <div class="card-footer">무료</div>
+      </div>
+      <div class="card">
+        <img src="gov4.jpg" alt="국비강의4">
+        <div class="card-title">[6기] K-Digital Training: 데이터 엔지니어링 데브코스</div>
+        <div class="card-footer">무료</div>
+      </div>
+      <div class="card">
+        <img src="gov5.jpg" alt="국비강의5">
+        <div class="card-title">[7기] K-Digital Training: 데이터 분석 데브코스</div>
+        <div class="card-footer">무료</div>
+      </div>
+      <div class="card">
+        <img src="gov6.jpg" alt="국비강의6">
+        <div class="card-title">[7기] K-Digital Training: 웹 풀스택 데브코스</div>
+        <div class="card-footer">무료</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Programmers Clone. All rights reserved.</p>
+    <div class="footer-top">
+      <div class="footer-banner">
+        <img src="footer-banner.png" alt="역량인증 자격증 이미지">
+        <div>
+          <h3>개발자 역량 평가 1위 프로그래머스에서 만든<br>자격증 취득에 도전해보세요!</h3>
+          <button>역량인증자격증 자세히 알아보기 →</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-cols">
+        <div>
+          <strong>서비스</strong>
+          <ul>
+            <li>개발자용 프로그래머스</li>
+            <li>기업용 프로그래머스</li>
+          </ul>
+        </div>
+        <div>
+          <strong>소식</strong>
+          <ul>
+            <li>공지사항</li>
+            <li>블로그</li>
+          </ul>
+        </div>
+        <div>
+          <strong>자주 묻는 질문</strong>
+          <ul>
+            <li>개인 회원</li>
+            <li>기업 회원</li>
+          </ul>
+        </div>
+        <div>
+          <strong>고객센터</strong>
+          <ul>
+            <li>대표번호: 1533-1886</li>
+            <li>운영시간: 오전 9시 ~ 오후 6시</li>
+            <li>점심시간: 오후 12시 ~ 오후 1시</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>2025 프로그래머스<br>
+        (주)그렙 / 대표 임성수 / 서울특별시 서초구 반포대로 45, 4층(서초동, 명정빌딩) / 사업자등록번호 220-88-75699 / 통신판매업신고 제 2014-서울강남-03241호 / 직업정보제공사업 신고번호 J1200020180027<br>
+        프로그래머스 사이트의 모든 콘텐츠, 정보, UI, HTML 소스 등에 대한 무단 복제, 전송, 배포, 크롤링, 스크래핑 등의 행위를 거부하며, 이러한 행위는 관련 법령에 의해 엄격히 금지됩니다.</p>
+        <p>
+          <a href="#">개인정보 처리방침</a> | 
+          <a href="#">이용약관</a> | 
+          <a href="#">프로그래머스 인재 채용</a>
+        </p>
+      </div>
     </div>
   </footer>
   <script src="js/main.js"></script>
