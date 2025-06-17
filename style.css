@@ -1,0 +1,262 @@
+/* style.css */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background: #f8f9fa;
+  color: #222;
+}
+a { color: inherit; text-decoration: none; }
+h2 { font-size: 2rem; margin: 1.5rem 0 1rem 0; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0 2rem;
+  height: 64px;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+  z-index: 10;
+}
+.logo img { height: 36px; }
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.nav-item {
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem 0.7rem;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-item:hover,
+.nav-item.active {
+  background: #f0f4fa;
+  border-radius: 6px;
+  color: #2962ff;
+}
+.blue { color: #2962ff; font-weight: 700; }
+.login-btn { border: 1px solid #2962ff; border-radius: 5px; color: #2962ff; padding: 0.4rem 1rem; }
+.open-link { font-size: 1rem; vertical-align: middle; }
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 2rem 3rem;
+  gap: 3rem;
+  min-width: 700px;
+  z-index: 100;
+  flex-direction: row;
+}
+.dropdown-menu > div { margin-right: 3rem; }
+.dropdown-menu h4 { font-size: 1.1rem; margin-bottom: 0.7rem; color: #2962ff; }
+.dropdown-menu ul li { margin-bottom: 0.5rem; font-size: 1rem; cursor: pointer; }
+.dropdown-menu ul li:hover { color: #2962ff; }
+
+.slider-section {
+  width: 100%;
+  background: #e3e8ff;
+  position: relative;
+  overflow: hidden;
+}
+.slider {
+  display: flex;
+  width: 100%;
+  height: 380px;
+  position: relative;
+}
+.slide {
+  display: none;
+  flex: 1 0 100%;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 380px;
+  top: 0; left: 0;
+  transition: opacity 0.5s;
+  opacity: 0;
+  z-index: 0;
+}
+.slide.active {
+  display: flex;
+  opacity: 1;
+  z-index: 1;
+}
+.slide img {
+  height: 300px;
+  width: 480px;
+  margin-right: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  background: #fff;
+  object-fit: cover;
+}
+.slide-caption {
+  color: #222;
+  font-size: 1.3rem;
+  max-width: 520px;
+}
+.slider-controls {
+  position: absolute;
+  left: 60px; /* 왼쪽으로 이동 */
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  padding: 0.2rem 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+.slider-btn {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  font-size: 1.5rem;
+  color: #2962ff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+.slider-btn:hover { background: #e3e8ff; }
+.slider-index { font-size: 1.1rem; color: #222; }
+
+.quick-links {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  background: #fff;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+.quick-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  color: #222;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.quick-link .material-icons { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.quick-link:hover { color: #2962ff; }
+
+.recommend-section, .bootcamp-section, .blog-section {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+}
+.recommend-list, .bootcamp-list, .blog-list {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.recommend-card, .bootcamp-card, .blog-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 1.2rem;
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+.recommend-card:hover, .bootcamp-card:hover, .blog-card:hover {
+  box-shadow: 0 6px 24px rgba(41,98,255,0.10);
+}
+.recommend-card img, .bootcamp-card img, .blog-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+.card-desc {
+  font-size: 1.05rem;
+  color: #2962ff;
+  font-weight: 500;
+  text-align: center;
+}
+
+.footer {
+  background: #30449e;
+  color: #fff;
+  padding: 2.5rem 0 1rem 0;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto 1.5rem auto;
+  padding: 0 1rem;
+}
+.footer-logo img { height: 38px; }
+.footer-links {
+  display: flex;
+  gap: 3rem;
+}
+.footer-links h4 { font-size: 1rem; margin-bottom: 0.5rem; color: #90caf9; }
+.footer-links ul li { font-size: 0.95rem; margin-bottom: 0.3rem; }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  flex-wrap: wrap;
+}
+.footer-policy a { color: #90caf9; margin-right: 1.5rem; }
+.footer-social .material-icons { font-size: 1.6rem; margin-right: 0.7rem; color: #90caf9; }
+
+@media (max-width: 1200px) {
+  .recommend-card, .bootcamp-card, .blog-card { width: 270px; }
+  .slide img { height: 180px; width: 320px; }
+}
+@media (max-width: 900px) {
+  .slider { height: 220px; }
+  .slide, .slide.active { height: 220px; }
+  .slide img { height: 120px; width: 180px; }
+  .recommend-card, .bootcamp-card, .blog-card { width: 180px; }
+  .slider-controls { left: 20px; }
+}
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; height: auto; padding: 0.5rem 1rem; }
+  .nav-menu { flex-wrap: wrap; gap: 1rem; }
+  .slider { height: 180px; }
+  .slide, .slide.active { height: 180px; }
+  .slide img { height: 80px; width: 120px; }
+  .quick-links { flex-wrap: wrap; gap: 1rem; }
+  .recommend-list, .bootcamp-list, .blog-list { flex-direction: column; gap: 1rem; align-items: center; }
+  .recommend-card, .bootcamp-card, .blog-card { width: 95%; }
+  .footer-top, .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .slider-controls { left: 5px; }
+}
+@media (max-width: 480px) {
+  .navbar { padding: 0.2rem 0.5rem; }
+  .slide-caption h2 { font-size: 1.1rem; }
+  .slide-caption p { font-size: 0.9rem; }
+  .footer { font-size: 0.9rem; }
+  .slider-controls { left: 2px; }
+}
